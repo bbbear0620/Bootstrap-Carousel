@@ -1,0 +1,9 @@
+    images = Image.objects.filter(content_type=content_type,object_id=news_pk)
+    image_list = []
+    for i in range(images.count()):
+        image_list.append(i)
+    images_list_tuple = zip(image_list,images)
+    context={}
+    context['image_list'] = image_list
+    context['images'] = images_list_tuple
+    response = render(request,'news/news_detail.html', context)
